@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+/*
+|--------------------------------------------------------------------------
+| Catch All Route
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/{any}', 'Controller@app')->where('any', '.*');
 });

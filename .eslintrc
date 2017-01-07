@@ -1,0 +1,7 @@
+{
+  "extends": "vue",
+  // Your overrides...
+  "rules" : {
+    "no-undef" : 0
+  }
+}
