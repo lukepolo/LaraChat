@@ -27,27 +27,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /*
-    |--------------------------------------------------------------------------
-    | Relations
-    |--------------------------------------------------------------------------
-    |
-    */
-
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
-    }
-
-    public function channels()
-    {
-        return $this->belongsToMany(Channel::class);
-    }
-
-    public function ownedChannels()
-    {
-        return $this->hasMany(Channel::class, 'id', 'user_id');
-    }
-
 }
