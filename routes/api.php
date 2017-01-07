@@ -13,12 +13,5 @@
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('users', 'UsersController');
-
     Route::resource('Messages', 'MessagesController');
-
-    Route::resource('channels', 'ChannelsController');
-    Route::group(['prefix' => 'channels'], function() {
-        Route::resource('channel.users', 'ChannelUsersController');
-        Route::resource('channel.messages', 'ChannelMessagesController');
-    });
 });

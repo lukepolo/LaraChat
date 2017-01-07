@@ -25,7 +25,6 @@ class MessageRequest extends FormRequest
     {
         return [
             'message' => 'required|string',
-            'channel_id' => 'required_without:id'
         ];
     }
 }

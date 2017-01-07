@@ -7,6 +7,10 @@ use App\Models\Message;
 
 class MessagesController extends Controller
 {
+    const EAGER_LOADS = [
+        'user'
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        return response()->json(Message::all());
+        return response()->json(Message::with(self::EAGER_LOADS)->get());
     }
 
     /**
@@ -25,19 +29,12 @@ class MessagesController extends Controller
      */
     public function store(MessageRequest $request)
     {
-        $channel = auth()->user()->channels->find($request->get('channel_id'));
-
-        if(!empty($channel)) {
-            return response()->json(
-                Message::create([
-                    'user_id' => auth()->id(),
-                    'message' => $request->get('messsage'),
-                    'channel_id' => $channel->id
-                ])
-            );
-        }
-
-        return response()->json('The channel does not exist', 401);
+        return response()->json(
+            Message::create([
+                'user_id' => auth()->id(),
+                'message' => $request->get('message'),
+            ])->load(self::EAGER_LOADS)
+        );
     }
 
     /**
@@ -48,7 +45,9 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Message::findOrFail($id));
+        return response()->json(
+            Message::with(self::EAGER_LOADS)->findOrFail($id)
+        );
     }
 
     /**
@@ -60,7 +59,7 @@ class MessagesController extends Controller
      */
     public function update(MessageRequest $request, $id)
     {
-        $message = Message::findOrFail($id);
+        $message = Message::with(self::EAGER_LOADS)->findOrFail($id);
 
         if($message->user_id == auth()->id) {
 
@@ -82,6 +81,8 @@ class MessagesController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(Message::destroy($id));
+        return response()->json(
+            Message::destroy($id)
+        );
     }
 }

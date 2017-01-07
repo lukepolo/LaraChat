@@ -1,8 +1,8 @@
-
-window._ = require('lodash')
+window.laroute = require('./laroute')
 
 window.$ = window.jQuery = require('jquery')
-window.laroute = require('./laroute')
+window._ = require('lodash')
+
 require('bootstrap-sass')
 
 window.Vue = require('vue')
