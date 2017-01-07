@@ -12,6 +12,4 @@
 */
 
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::resource('users', 'UsersController');
-    Route::resource('Messages', 'MessagesController');
 });
