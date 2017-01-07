@@ -20,14 +20,18 @@ import Home from './pages/Home.vue'
 const router = new VueRouter({
   mode: 'history',
   routes: [
-        { path: '/', name: 'home', component: Home }
+      { path: '/', name: 'home', component: Home }
   ]
 })
 
 const app = new Vue({
   router,
-  store,
-  // render: h => h(Home)
+  store
 }).$mount('#app')
 
 window.app = app
+
+Echo.channel('messages')
+    .listen('MessageCreated', (event) => {
+        app.$store.commit('ADD_MESSAGE', event.message)
+    })
