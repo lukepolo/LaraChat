@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::resource('users', 'UsersController');
+
+Route::resource('Messages', 'MessagesController');
+
+Route::resource('channels', 'ChannelsController');
+Route::group(['prefix' => 'channels'], function() {
+    Route::resource('channel.users', 'ChannelUsersController');
+    Route::resource('channel.messages', 'ChannelMessagesController');
+});
+
+
