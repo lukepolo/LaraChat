@@ -31,5 +31,5 @@ function mix($path, $json = false, $shouldHotReload = false)
             return $compiledFile === trim($path, '/');
         });
 
-    return $shouldHotReload ? "https://localhost:8080{$path}" : url($path);
+    return $shouldHotReload ? "http://localhost:8080{$path}" : url($path);
 }

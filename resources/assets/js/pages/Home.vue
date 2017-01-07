@@ -1,6 +1,6 @@
 <template>
   <p>
-      Base Setup
+      Base Setup done
   </p>
 </template>
 
