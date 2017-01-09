@@ -10,7 +10,7 @@ This is an interactive workshop, and is meant to be led to help answer questions
 	* Environment Setup
 	* Base Install
 3. Getting to Know Laravel  (5 mins)
-			*  Routes
+	*  Routes
 	* Controllers
 	* Models & Migrations / Seeders
 	* Templates / Views / Blade Syntax
