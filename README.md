@@ -9,12 +9,12 @@ This is an interactive workshop, and is meant to be led to help answer questions
 2. The Setup (15 min)
 	* Environment Setup
 	* Base Install
-3. Getting to Know Laravel  (5 mins)
+3. Getting to Know Laravel
 	*  Routes
 	* Controllers
 	* Models & Migrations / Seeders
 	* Templates / Views / Blade Syntax
-4. Getting to know Vue (5 mins)
+4. Getting to know Vue
 	* Data Binding
 	* Template Directives
 5. Building a simple chat app 
