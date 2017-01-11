@@ -7,6 +7,7 @@ use App\Models\Message;
 
 class MessagesController extends Controller
 {
+    // TODO - remove this into the protected $with
     const EAGER_LOADS = [
         'user'
     ];
