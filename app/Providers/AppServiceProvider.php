@@ -15,9 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Message::created(function(Message $message) {
-            broadcast(new MessageCreated($message))->toOthers();
-        });
+
     }
 
     /**
