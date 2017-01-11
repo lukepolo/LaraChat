@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Events\MessageCreated;
-use App\Models\Message;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,9 +13,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Message::created(function(Message $message) {
-            broadcast(new MessageCreated($message))->toOthers();
-        });
     }
 
     /**
