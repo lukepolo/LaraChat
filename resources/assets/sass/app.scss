@@ -7,3 +7,65 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Styles below are for Demo Only ==========
+// =========================================
+html,
+body,
+#app {
+  height: 100%;
+  min-height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  > .navbar {
+    flex: 0 0 auto;
+  }
+
+  > .container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction:column;
+  }
+}
+
+.view, .row, .col-md-8, .panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.panel-body {
+  flex: 1 1 auto;
+  overflow: auto;
+
+  ul {
+    list-style: none;
+    padding: 0px 20px;
+
+    li {
+      border-bottom: 1px solid #EEE;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+
+      div {
+        font-weight: bold;
+        font-size: .8em;
+      }
+
+      p {
+        margin: 0px;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
